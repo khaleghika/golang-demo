@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"database/sql"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -9,6 +10,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
+
+	_ "github.com/lib/pq"
 )
 
 const botToken = "2089411348:AAHdzyPFMTPzhhLIwX8vCr4E2E6P950q3b4"
@@ -22,6 +25,15 @@ func main() {
 		log.Fatal(err)
 		return
 	}
+}
+
+func test() {
+	db, err := sql.Open("postgres",
+		"postgres://agtvlbawiczlth:269af6acbbefeac713be6a8c6d1578c92802b0a623ccddb116db1c13a56c4247@ec2-52-6-211-59.compute-1.amazonaws.com:5432/dc48cgae90mb1h")
+	if err != nil {
+		log.Fatal(err)
+	}
+	db.Close()
 }
 
 type webHookReqBody struct {
