@@ -12,6 +12,7 @@ import (
 )
 
 const botToken = "2089411348:AAHdzyPFMTPzhhLIwX8vCr4E2E6P950q3b4"
+var integer int = 0
 
 func main() {
 	port := os.Getenv("PORT")
@@ -57,7 +58,7 @@ func sendReply(chatID int64) error {
 	fmt.Println("sendReply called")
 
 	// calls the joke fetcher fucntion and gets a random joke from the API
-	text := "Salam"
+	text := "Salam" + integer
 
 	//Creates an instance of our custom sendMessageReqBody Type
 	reqBody := &sendMessageReqBody{
