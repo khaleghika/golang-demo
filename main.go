@@ -60,6 +60,7 @@ func sendReply(chatID int64) error {
 
 	// calls the joke fetcher fucntion and gets a random joke from the API
 	text := "Salam" + fmt.Sprint(integer)
+	integer++
 
 	//Creates an instance of our custom sendMessageReqBody Type
 	reqBody := &sendMessageReqBody{
