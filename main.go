@@ -77,7 +77,7 @@ func sendReply(chatID int64) error {
 	}
 
 	integer++
-	text = fmt.Sprint(integer) + " : " + text
+	text = fmt.Sprint(integer) + " : " + text + os.Getenv("DATABASE_URL")
 
 	//Creates an instance of our custom sendMessageReqBody Type
 	reqBody := &sendMessageReqBody{
