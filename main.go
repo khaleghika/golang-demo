@@ -13,7 +13,7 @@ import (
 const botToken = "2089411348:AAHdzyPFMTPzhhLIwX8vCr4E2E6P950q3b4"
 
 func main() {
-	err := http.ListenAndServe(":8080", http.HandlerFunc(webHookHandler))
+	err := http.ListenAndServe(":80", http.HandlerFunc(webHookHandler))
 	if err != nil {
 		log.Fatal(err)
 		return
