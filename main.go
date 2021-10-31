@@ -25,11 +25,11 @@ func main() {
 		log.Fatal(err)
 		return
 	}
+	test()
 }
 
 func test() {
-	db, err := sql.Open("postgres",
-		"postgres://agtvlbawiczlth:269af6acbbefeac713be6a8c6d1578c92802b0a623ccddb116db1c13a56c4247@ec2-52-6-211-59.compute-1.amazonaws.com:5432/dc48cgae90mb1h")
+	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -77,7 +77,7 @@ func sendReply(chatID int64) error {
 	}
 
 	integer++
-	text = fmt.Sprint(integer) + " : " + text + os.Getenv("DATABASE_URL")
+	text = fmt.Sprint(integer) + " : " + text
 
 	//Creates an instance of our custom sendMessageReqBody Type
 	reqBody := &sendMessageReqBody{
