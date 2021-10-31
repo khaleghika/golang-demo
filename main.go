@@ -59,8 +59,13 @@ func sendReply(chatID int64) error {
 	fmt.Println("sendReply called")
 
 	// calls the joke fetcher fucntion and gets a random joke from the API
-	text := "Salam" + fmt.Sprint(integer)
+	text, err := jokeFetcher()
+	if err != nil {
+		return err
+	}
+
 	integer++
+	text = fmt.Sprint(integer) + " : " + text
 
 	//Creates an instance of our custom sendMessageReqBody Type
 	reqBody := &sendMessageReqBody{
